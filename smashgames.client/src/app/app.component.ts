@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from './data.service';
+import { BehaviorSubject } from 'rxjs';
+import { Studio } from './Models/studio';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +10,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AppComponent implements OnInit {
 
-  constructor() { }
+  studio: BehaviorSubject<Studio> = this.data.studio$;
+
+  constructor(private data: DataService) { }
 
   ngOnInit(): void {
     
